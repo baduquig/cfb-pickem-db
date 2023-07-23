@@ -18,8 +18,8 @@ BEGIN
 
     -- Create Conferences
     CREATE TABLE IF NOT EXISTS CFB_CONFERENCES (
-        CONFERENCE_ID       BIT             NOT NULL,
-        DIVISION_ID         BIT             NOT NULL,
+        DIVISION_ID         TINYINT         NOT NULL,
+        CONFERENCE_ID       TINYINT         NOT NULL,
         CONFERENCE_NAME     VARCHAR(32)     NULL,
         DIVISION_NAME       VARCHAR(8)      NULL,
 
@@ -36,27 +36,23 @@ BEGIN
         WINS                BIT             NULL,
         LOSSES              BIT             NULL,
         TIES                BIT             NULL,
-        DIVISION            BIT             NOT NULL,
+        DIVISION            TINYINT         NOT NULL,
 
-        PRIMARY KEY (SCHOOL_ID),
-        FOREIGN KEY (DIVISION) REFERENCES CFB_CONFERENCES(DIVISION_ID)
+        PRIMARY KEY (SCHOOL_ID)
     );
 
     -- Create CFB_GAMES
     CREATE TABLE IF NOT EXISTS CFB_GAMES (
-        GAME_WEEK           BIT            NOT NULL,
+        GAME_ID             INT            UNSIGNED    NOT NULL,
+        GAME_WEEK           TINYINT        NOT NULL,
         GAME_DATE           VARCHAR(32)    NULL,
         AWAY_SCHOOL         SMALLINT       UNSIGNED    NOT NULL,
         HOME_SCHOOL         SMALLINT       UNSIGNED    NOT NULL,
-        GAME_ID             INT            UNSIGNED    NOT NULL,
         GAME_TIME           VARCHAR(16)    NULL,
         SCORE               VARCHAR(8)     NULL,
         GAME_LOCATION       TINYINT        UNSIGNED    NOT NULL,
 
-        PRIMARY KEY (GAME_ID),
-        FOREIGN KEY (GAME_LOCATION) REFERENCES CFB_LOCATIONS(LOCATION_ID),
-        FOREIGN KEY (AWAY_SCHOOL) REFERENCES CFB_SCHOOLS(SCHOOL_ID),
-        FOREIGN KEY (HOME_SCHOOL) REFERENCES CFB_SCHOOLS(SCHOOL_ID)
+        PRIMARY KEY (GAME_ID)
     );
 
     -- Users
