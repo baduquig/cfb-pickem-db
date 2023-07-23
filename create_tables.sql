@@ -3,24 +3,24 @@ CREATE PROCEDURE CREATE_CFB_PICKEM_TABLES()
 BEGIN
 
     -- Create CFB_GAMES
-    CREATE CFB_GAMES (
-        GAME_WEEK           BIT             NOT NULL,
-        GAME_DATE           VARCHAR2(32)    NULL,
-        AWAY_SCHOOL         SMALLINT        UNSIGNED    NOT NULL,
-        HOME_SCHOOL         SMALLINT        UNSIGNED    NOT NULL,
-        GAME_ID             INT,            UNSIGNED    NOT NULL,
-        GAME_TIME           VARCHAR2(16)    NULL,
-        SCORE               VARCHAR2(8)     NULL,
-        GAME_LOCATION       VARCHAR2(64)    NOT NULL
+    CREATE TABLE CFB_GAMES (
+        GAME_WEEK           BIT            NOT NULL,
+        GAME_DATE           VARCHAR(32)    NULL,
+        AWAY_SCHOOL         SMALLINT       UNSIGNED    NOT NULL,
+        HOME_SCHOOL         SMALLINT       UNSIGNED    NOT NULL,
+        GAME_ID             INT            UNSIGNED    NOT NULL,
+        GAME_TIME           VARCHAR(16)    NULL,
+        SCORE               VARCHAR(8)     NULL,
+        GAME_LOCATION       VARCHAR(64)    NOT NULL
     );
 
     -- Create Schools
-    CREATE CFB_SCHOOLS (
+    CREATE TABLE CFB_SCHOOLS (
         SCHOOL_ID           SMALLINT        UNSIGNED    NOT NULL,
-        LOGO_URL            VARCHAR2(128)   NULL,
-        SCHOOL_NAME         VARCHAR2(32)    NULL,
-        MASCOT              VARCHAR2(32)    NULL,
-        RECORD              VARCHAR2(8)     NULL,
+        LOGO_URL            VARCHAR(128)    NULL,
+        SCHOOL_NAME         VARCHAR(32)     NULL,
+        MASCOT              VARCHAR(32)     NULL,
+        RECORD              VARCHAR(8)      NULL,
         WINS                BIT             NULL,
         LOSSES              BIT             NULL,
         TIES                BIT             NULL,
@@ -28,35 +28,35 @@ BEGIN
     );
 
     -- Create Conferences
-    CREATE CFB_CONFERENCES (
+    CREATE TABLE CFB_CONFERENCES (
         CONFERENCE_ID       BIT             NOT NULL,
         DIVISION_ID         BIT             NOT NULL,
-        CONFERENCE_NAME     VARCHAR2(32)    NULL,
-        DIVISION_NAME       VARCHAR2(8)     NULL
+        CONFERENCE_NAME     VARCHAR(32)     NULL,
+        DIVISION_NAME       VARCHAR(8)      NULL
     );
 
     -- Create Locations
-    CREATE CFB_LOCATIONS (
+    CREATE TABLE CFB_LOCATIONS (
         LOCATION_ID         TINYINT         UNSIGNED    NOT NULL,
-        LOCATION_NAME       VARCHAR2(64)    NULL,
-        CITY                VARCHAR2(32)    NULL,
+        LOCATION_NAME       VARCHAR(64)     NULL,
+        CITY                VARCHAR(32)     NULL,
         STATE_NAME          CHAR(2)         NULL,
         LATITUDE            FLOAT(10, 7)    NULL,
         LONGITUDE           FLOAT(10, 7)    NULL
     );
 
     -- Users
-    CREATE CFB_USERS (
+    CREATE TABLE CFB_USERS (
         USER_ID             INT             UNSIGNED    NOT NULL    AUTO_INCREMENT,
-        USERNAME            VARCHAR2(32)    NOT NULL,
-        PW                  VARCHAR2(32)    NULL            
+        USERNAME            VARCHAR(32)     NOT NULL,
+        PW                  VARCHAR(32)     NULL            
     );
 
     -- User Picks
-    CREATE CFB_USER_PICKS (
+    CREATE TABLE CFB_USER_PICKS (
         USER_ID             INT             UNSIGNED    NOT NULL,
         GAME_ID             INT             UNSIGNED    NOT NULL,
         SELECTED_SCHOOL     SMALLINT        UNSIGNED    NOT NULL
     );
 
-END
+END;
