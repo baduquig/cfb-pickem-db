@@ -49,8 +49,8 @@ BEGIN
         AWAY_SCHOOL         SMALLINT        UNSIGNED    NOT NULL,
         HOME_SCHOOL         SMALLINT        UNSIGNED    NOT NULL,
         GAME_TIME           VARCHAR(16)     NULL,
-        AWAY_SCORE          VARCHAR(4)      UNSIGNED    NOT NULL,
-        HOME_SCORE          VARCHAR(4)      UNSIGNED    NULL,
+        AWAY_SCORE          TINYINT         UNSIGNED    NULL,
+        HOME_SCORE          TINYINT         UNSIGNED    NULL,
         GAME_LOCATION       TINYINT         UNSIGNED    NOT NULL,
 
         PRIMARY KEY (GAME_ID)
