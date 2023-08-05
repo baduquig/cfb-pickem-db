@@ -43,14 +43,15 @@ BEGIN
 
     -- Create CFB_GAMES
     CREATE TABLE IF NOT EXISTS CFB_GAMES (
-        GAME_ID             INT            UNSIGNED    NOT NULL,
-        GAME_WEEK           TINYINT        NOT NULL,
-        GAME_DATE           VARCHAR(32)    NULL,
-        AWAY_SCHOOL         SMALLINT       UNSIGNED    NOT NULL,
-        HOME_SCHOOL         SMALLINT       UNSIGNED    NOT NULL,
-        GAME_TIME           VARCHAR(16)    NULL,
-        SCORE               VARCHAR(8)     NULL,
-        GAME_LOCATION       TINYINT        UNSIGNED    NOT NULL,
+        GAME_ID             INT             UNSIGNED    NOT NULL,
+        GAME_WEEK           TINYINT         NOT NULL,
+        GAME_DATE           VARCHAR(32)     NULL,
+        AWAY_SCHOOL         SMALLINT        UNSIGNED    NOT NULL,
+        HOME_SCHOOL         SMALLINT        UNSIGNED    NOT NULL,
+        GAME_TIME           VARCHAR(16)     NULL,
+        AWAY_SCORE          VARCHAR(4)      UNSIGNED    NOT NULL,
+        HOME_SCORE          VARCHAR(4)      UNSIGNED    NULL,
+        GAME_LOCATION       TINYINT         UNSIGNED    NOT NULL,
 
         PRIMARY KEY (GAME_ID)
     );
