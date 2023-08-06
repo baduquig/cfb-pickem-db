@@ -1,0 +1,24 @@
+DELIMITER // 
+
+CREATE PROCEDURE VALIDATE_USER (
+    IN IN_USERNAME VARCHAR(32),
+    IN_PW VARCHAR(32)
+)
+
+BEGIN
+
+    SELECT
+        CASE 
+            WHEN COUNT(U.USER_ID) = 1 THEN U.USER_ID
+            ELSE ''
+        END
+    FROM
+        CFB_USERS U
+    WHERE
+        U.USERNAME = IN_USERNAME
+            AND
+        U.PW = IN_PW
+
+END //
+
+DELIMITER ;

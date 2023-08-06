@@ -1,3 +1,5 @@
+delimiter //
+
 CREATE PROCEDURE DELETE_CFB_PICKEM_DATA()
 
 BEGIN
@@ -14,4 +16,6 @@ BEGIN
  
     DELETE FROM CFB_GAMES;
 
-END;
+END //
+
+delimiter ;

@@ -10,9 +10,17 @@ BEGIN
     INSERT INTO CFB_USERS (USER_ID, USERNAME, PW)
         VALUES (NULL, IN_USERNAME, IN_PW);
     
+    COMMIT;
+    
     INSERT INTO CFB_USER_PICKS (USER_ID, GAME_ID, SELECTED_SCHOOL)
-        SELECT MAX(U.USER_ID), G.GAME_ID, NULL
-        FROM CFB_USERS U, CFB_GAMES G;
+        SELECT 
+            (SELECT MAX(U.USER_ID) FROM CFB_USERS U), 
+            G.GAME_ID, 
+            NULL
+        FROM 
+            CFB_GAMES G;
+
+    COMMIT;
 
 END //
 
